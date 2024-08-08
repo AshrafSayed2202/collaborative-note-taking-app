@@ -20,7 +20,9 @@ form {
   margin-bottom: 20px;
 }
 
-input, button, textarea {
+input,
+button,
+textarea {
   padding: 10px;
   margin: 5px;
 }
@@ -29,10 +31,13 @@ input, button, textarea {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  gap: 30px;
 }
 
 .note {
   border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 5px 7px 14px -10px;
   padding: 10px;
   margin: 5px;
   width: 200px;

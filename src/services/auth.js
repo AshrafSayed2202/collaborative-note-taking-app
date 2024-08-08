@@ -4,7 +4,6 @@ import { auth, setDoc, doc, getDoc, firestore } from '../firebase/config';
 const signInWithGoogle = () => {
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider).then(async (result) => {
-        console.log(result.user);
 
         // Create a reference to the user's document
         const userDocRef = doc(firestore, `users`, result.user.uid);
@@ -19,9 +18,9 @@ const signInWithGoogle = () => {
                 image: result.user.photoURL,
                 email: result.user.email
             });
-            console.log("User document created");
+            console.log("User document created and Logged in");
         } else {
-            console.log("User already exists");
+            console.log("Logged in");
         }
 
     })
