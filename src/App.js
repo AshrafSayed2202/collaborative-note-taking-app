@@ -7,9 +7,11 @@ import NoteEditor from './components/NoteEditor';
 import { signInWithGoogle, signOut } from './services/auth';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './firebase/config';
-
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './index.css';
-
+library.add(fas)
 const App = () => {
   const [user, setUser] = useState(null);
 
@@ -27,12 +29,13 @@ const App = () => {
           <header>
             <h1>Share your NOTES with Strangers</h1>
             {user ? (
-              <div>
+              <div className='user-head'>
+                <img src={user.photoURL} alt='user' />
                 <div>
-                  <img src={user.photoURL} alt='user' />
                   <p>{user.displayName}</p>
+                  <span>{user.email}</span>
                 </div>
-                <button onClick={signOut}>Sign Out</button>
+                <button onClick={signOut} title='logout'><FontAwesomeIcon icon="fa-solid fa-right-from-bracket" /></button>
               </div>
             ) : (
               <button onClick={signInWithGoogle}>Sign In with Google</button>
