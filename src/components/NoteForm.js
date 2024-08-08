@@ -7,11 +7,6 @@ const NoteForm = () => {
     const { user } = useContext(NoteContext);
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
-
-    if (!user) {
-        return <p>You must be logged in to add notes.</p>;
-    }
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (title && content) {

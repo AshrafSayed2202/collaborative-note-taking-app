@@ -8,6 +8,8 @@
 
 body {
   font-family: Arial, sans-serif;
+  min-height: 100dvh;
+  background-color: #eee;
 }
 
 .App {
@@ -21,6 +23,35 @@ header {
   align-items: center;
   width: 100vw;
   padding: 20px;
+  background-color: #ddd;
+  margin-bottom: 30px;
+}
+
+@media (width < 600px) {
+  header {
+    flex-direction: column;
+    gap: 40px;
+  }
+}
+
+@media (width < 500px) {
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  form input,
+  form button {
+    width: 80%;
+    border-radius: 0 !important;
+  }
+
+  form input {
+    border: none;
+  }
 }
 
 .user-head {
@@ -50,8 +81,47 @@ header {
   color: #c90707ea;
 }
 
+.sign-in {
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sign-in svg {
+  font-size: 24px;
+}
+
 form {
   margin-bottom: 20px;
+}
+
+form input {
+  border-radius: 500px;
+  margin: 0;
+  outline: none;
+}
+
+form input:nth-child(1) {
+  border-right: transparent;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+form input:nth-child(2) {
+  border-radius: 0;
+}
+
+form button {
+  border-top-right-radius: 500px;
+  border-bottom-right-radius: 500px;
+  cursor: pointer;
+}
+
+form button:hover,
+.sign-in:hover {
+  background-color: #ccc;
 }
 
 input,
@@ -69,6 +139,7 @@ textarea {
 }
 
 .note {
+  background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 10px;
   box-shadow: 5px 7px 14px -10px;
@@ -80,6 +151,11 @@ textarea {
   gap: 10px;
   flex-direction: column;
   justify-content: space-around;
+  transition: 0.3s;
+}
+
+.note:hover {
+  transform: translateY(-5px) scale(1.01);
 }
 
 .note .note-user {
@@ -115,6 +191,17 @@ textarea {
   font-size: 20px;
   cursor: pointer;
   margin: 0;
+  position: relative;
+}
+
+.note-btns button::before,
+.user-head button::before {
+  content: 0;
+  position: absolute;
+  background: green;
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 .note-btns button:first-child {
@@ -123,4 +210,18 @@ textarea {
 
 .note-btns button:nth-child(2) {
   color: #2e23d1ea;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  padding: 15px;
+  font-size: 9px;
+  opacity: 0.7;
+}
+
+footer a {
+  color: #111;
 }

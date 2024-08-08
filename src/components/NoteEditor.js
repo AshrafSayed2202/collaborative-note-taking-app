@@ -49,12 +49,12 @@ const NoteEditor = () => {
                 onChange={(e) => setTitle(e.target.value)}
                 required
             />
-            <textarea
+            <input
                 placeholder="Content"
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
                 required
-            ></textarea>
+            ></input>
             <button type="submit">Update Note</button>
         </form>
     ) : (
